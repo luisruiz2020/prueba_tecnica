@@ -1,0 +1,88 @@
+<div role="document" class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Crear Doctor</h4>
+        <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-6">
+            <label>Nombre:</label>
+          </div>
+          <div class="col-6">
+            <input type="text" id="nombre">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <label>Tipo identificacion:</label>
+          </div>
+          <div class="col-6">
+            <select id="tipoIdentificacion">
+              <option value="1" selected>CC</option>
+              <option value="2">CE</option>
+              <option value="3">TI</option>
+              <option value="4">RC</option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <label>Identificación</label>
+          </div>
+          <div class="col-6">
+            <input type="text" id="identificacion">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <label>Especialidad</label>
+          </div>
+          <div class="col-6">
+            <input type="text" id="especialidad">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <label>Numero de credencial</label>
+          </div>
+          <div class="col-6">
+            <input type="text" id="numCredencial">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <label>Hospital</label>
+          </div>
+          <div class="col-6">
+            <select id="hospital">
+                <option value="0" selected>seleccione ...</option>
+                <option *ngFor="let hostp of listHospitals" value="{{hostp.id}}">{{hostp.nombre}}</option>
+              </select>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <p>Seleccione los pacientes a cargado</p>
+        </div>
+      </div>
+      <div class="row overflow-auto" style="height: 100px; width: 100%;">
+        <div class="col-12">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item" *ngFor="let patient of listPatients">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="{{patient}}">
+                <label class="custom-control-label" for="{{patient}}">{{patient}}</label>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Crear</button>
+      </div>
+    </div>
+  </div>

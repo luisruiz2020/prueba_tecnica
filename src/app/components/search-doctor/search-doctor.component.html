@@ -1,0 +1,90 @@
+<div role="document" class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Buscar Doctor</h4>
+        <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <div class="row">
+              <div class="col-12">
+                  <p>Para realizar la busqueda del doctor, debe ingresar el Id correspondiente</p>
+              </div>
+          </div>
+          <div class="row">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Id del doctor" aria-describedby="basic-addon2">
+                <div class="input-group-append">
+                    <i class="fa fa-search input-group-text" aria-hidden="true"  id="basic-addon2"></i>
+                </div>
+              </div>
+          </div>
+        <div class="row">
+          <div class="col-6">
+            <label>Nombre:</label>
+          </div>
+          <div class="col-6">
+            <label id="nombre"></label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <label>Tipo identificacion:</label>
+          </div>
+          <div class="col-6">
+            <label id="tipoIdentificacion"></label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <label>Identificación</label>
+          </div>
+          <div class="col-6">
+            <label id="identiticacion"></label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <label>Especialidad</label>
+          </div>
+          <div class="col-6">
+            <label id="especialidad"></label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <label>Numero de credencial</label>
+          </div>
+          <div class="col-6">
+            <label id="credencial"></label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <label>Hospital</label>
+          </div>
+          <div class="col-6">
+            <label id="hospital"></label>
+          </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <p>Lista de pacientes asociados al doctor</p>
+            </div>
+          </div>
+          <div class="row overflow-auto" style="height: 100px; width: 100%;">
+              <div class="col-12">
+                  <ul class="list-group">
+                      <li class="list-group-item" *ngFor="let patient of listPatients">
+                        <i class="fa fa-user-circle-o" aria-hidden="true"></i> {{patient}}
+                      </li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Cerrar</button>
+      </div>
+    </div>
+  </div>

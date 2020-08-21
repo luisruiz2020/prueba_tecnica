@@ -1,0 +1,77 @@
+<div class="row">
+    <div class="col-2">
+        <div class="card">
+            <div class="card-header">
+                Gestión de pacientes
+            </div>
+            <div class="card-body">
+                <div class="btn-group-vertical">
+                    <button type="button" class="btn btn-secondary" (click)="create()"><i class="fa fa-user-plus" aria-hidden="true"></i> Crear</button>
+                    <button type="button" class="btn btn-secondary" (click)="search()"> <i class="fa fa-search" aria-hidden="true"></i> Consultar</button>
+                    <button type="button" class="btn btn-secondary"><i class="fa fa-pencil" aria-hidden="true"></i> Actualizar</button>
+                    <button type="button" class="btn btn-secondary" (click)="delete()"><i class="fa fa-user-times" aria-hidden="true"></i> Borrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-10">
+        <form>
+            <div class="form-group form-inline">
+                Busqueda rapida: 
+                <input class="form-control ml-2" type="text" name="fastSearch"/>
+                <span class="ml-3">Buscando...</span>
+            </div>
+
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col"></th>
+                        <th scope="col">Id</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Tipo Identificacion</th>
+                        <th scope="col">Identificacion</th>
+                        <th scope="col">Número de contacto</th>
+                        <th scope="col">Codigo Postal</th>
+                        <th scope="col">Número de seguro social</th>
+                        <th scope="col">Doctores</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let patient of listPatients">
+                        <th>
+                            <div class="custom-control custom-checkbox">
+                                <input type="radio" name="selectPatient" value="{{patient.id}}"/>
+                            </div>
+                        </th>
+                        <th>{{patient.id}}</th>
+                        <th>{{patient.nombre}}</th>
+                        <th>{{patient.tipoIdentificacion}}</th>
+                        <th>{{patient.identificacion}}</th>
+                        <th>{{patient.numContacto}}</th>
+                        <th>{{patient.codPostal}}</th>
+                        <th>{{patient.numSeguroSocial}}</th>
+                        <th>
+                            <div>
+                                <select id="doctors">
+                                    <option value="0" selected>Doctores...</option>
+                                    <option *ngFor="let doctor of patient.doctores" value="{{doctor}}">{{doctor}}</option>
+                                </select>
+                            </div>
+                        </th>
+                        <th>{{patient.numCredencial}}</th>
+                        <th>{{patient.hospital}}</th>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="d-flex justify-content-between p-2">
+                <select class="custom-select" style="width: auto" name="pageSize">
+                    <option value="2">2 items per page</option>
+                    <option value="4">4 items per page</option>
+                    <option value="6">6 items per page</option>
+                </select>
+            </div>
+        </form>
+    </div>
+</div>
+
+

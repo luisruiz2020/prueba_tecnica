@@ -1,0 +1,85 @@
+<div role="document" class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Crear Paciente</h4>
+        <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-6">
+            <label>Nombre:</label>
+          </div>
+          <div class="col-6">
+            <input type="text" id="nombre">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <label>Tipo identificacion:</label>
+          </div>
+          <div class="col-6">
+            <select id="tipoIdentificacion">
+              <option value="1" selected>CC</option>
+              <option value="2">CE</option>
+              <option value="3">TI</option>
+              <option value="4">RC</option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <label>Identificación</label>
+          </div>
+          <div class="col-6">
+            <input type="text" id="identificacion">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <label>Número de contacto</label>
+          </div>
+          <div class="col-6">
+            <input type="text" id="numContacto">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <label>Codigo Postal</label>
+          </div>
+          <div class="col-6">
+            <input type="text" id="codPostal">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <label>Número de seguro social</label>
+          </div>
+          <div class="col-6">
+            <input type="text" id="numSeguroSocial">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <p>Seleccione los doctores encargados de la atención del paciente</p>
+        </div>
+      </div>
+      <div class="row overflow-auto" style="height: 100px; width: 100%;">
+        <div class="col-12">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item" *ngFor="let doctor of listDoctors">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="{{doctor}}">
+                <label class="custom-control-label" for="{{doctor}}">{{doctor}}</label>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Crear</button>
+      </div>
+    </div>
+  </div>
